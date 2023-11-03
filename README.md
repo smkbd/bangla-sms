@@ -1,7 +1,7 @@
 # Bangla SMS
-As of Laravel 10, it only supports Vonage as the SMS notification channel. But `smkbd/bangla-sms` package lets you utilize Bangladeshi bulk SMS services (e.g. SMSQ) to send SMS notification.
+As of Laravel 10, it only supports Vonage as the SMS notification channel. But `smkbd/bangla-sms` package lets you utilize Bangladeshi bulk SMS services (e.g. SMSQ) to send SMS notifications.
 
-This package support a number of Bangladeshi SMS service providers (see below).
+This package supports a number of Bangladeshi SMS service providers/gateways (see below).
 
 ## Version Support
 | Laravel Version | Support    |
@@ -36,7 +36,7 @@ published `/config/bangla-sms.php` config file.
     ]
 
 ### 3. Routing SMS Notification
-To enable a notifiable (e.g. user) to receive SMS notification, you need to tell the package
+To enable a notifiable (e.g. user) to receive SMS notifications, you need to tell the package
 where the SMS will be sent by defining a `routeNotificationForBanglaSms` method. For example, 
 if your user phone number is stored in `phone_number` column of the database, you can 
 do it in the following way-
@@ -77,7 +77,7 @@ Configure your Notification class like the following way-
         ...
     }
 
-You can also utilize queue mechanism with this channel as you would do normally.
+You can also utilize the queue mechanism with this channel as you would do normally.
 
     use Illuminate\Bus\Queueable;
     use Illuminate\Contracts\Queue\ShouldQueue;
@@ -92,7 +92,7 @@ You can also utilize queue mechanism with this channel as you would do normally.
 
 ## Sending SMS without Notification class
 You can send SMS directly (i.e. without initiating any notification class) by 
-making use of the `Smkbd\BanglaSms\Sender` class like the following way-
+making use of the `Smkbd\BanglaSms\Sender` class in the following way-
 
     use Smkbd\BanglaSms\Sender;
 
@@ -114,4 +114,5 @@ You can also specify an SMS provider like this-
 ## Available SMS providers
 | Provider                     | Required info | Status |
 |------------------------------|---------------|--------|
-| [SMSQ](https://smsq.com.bd/) | `client_id`, `sender_id`, `api_token` | Done |
+| [SMSQ](https://smsq.com.bd/) | `client_id`, `sender_id`, `api_token` | ✔️ |
+| [MiMSMS](https://www.mimsms.com/) | under development | ❌ |
