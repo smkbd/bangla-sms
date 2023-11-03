@@ -1,7 +1,7 @@
 {
     "name": "smkbd/bangla-sms",
     "description": "Laravel SMS notification channel for Bangladeshi SMS providers",
-    "version": "1.0.22",
+    "version": "1.0.0-alpha",
     "type": "library",
     "license": "MIT",
     "autoload": {
@@ -17,7 +17,7 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "laravel/laravel": "^8.0",
+        "laravel/framework": "^8.0",
         "ext-curl": "*"
     },
     "extra": {
