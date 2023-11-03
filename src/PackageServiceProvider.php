@@ -10,8 +10,8 @@ class PackageServiceProvider extends ServiceProvider
     {
         $this->mergeConfigFrom(__DIR__.'/config/bangla-sms.php', 'bangla-sms');
         $this->publishes([
-            __DIR__.'/config/bangla-sms.php', 'bangla-sms' => config_path('bangla-sms.php')
-        ]);
+            __DIR__.'/config/bangla-sms.php' => config_path('bangla-sms.php')
+        ], 'bangla-sms');
     }
 
     public function boot(): void
