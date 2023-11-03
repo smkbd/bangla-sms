@@ -4,6 +4,7 @@ namespace Smkbd\BanglaSms;
 
 use Illuminate\Notifications\Notification;
 use Illuminate\Support\Facades\Log;
+use Smkbd\BanglaSms\Sender;
 
 class BanglaSmsChannel
 {

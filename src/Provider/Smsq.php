@@ -3,9 +3,9 @@
 namespace Smkbd\BanglaSms\Provider;
 
 
-class Qsms extends SmsProvider
+class Smsq extends SmsProvider
 {
-    public string $name = 'qsms';
+    public string $name = 'smsq';
     public string $apiBase = 'https://api.smsq.global/api/v2';
     public array $requiredConfig = ['client_id', 'api_key', 'sender_id'];
 

@@ -3,6 +3,7 @@
 namespace Smkbd\BanglaSms;
 
 use Illuminate\Support\ServiceProvider;
+use Smkbd\BanglaSms\Provider\Smsq;
 
 class PackageServiceProvider extends ServiceProvider
 {
