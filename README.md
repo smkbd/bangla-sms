@@ -7,7 +7,7 @@ This package supports a number of Bangladeshi SMS service providers/gateways (se
 | Laravel Version | Support    |
 |-----------------|------------| 
 | Laravel 10      | ✔️         |
-| Laravel 9       | Not tested |
+| Laravel 9       | ✔️          |
 | Laravel 8       | Not tested |
 
 

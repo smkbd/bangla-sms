@@ -13,7 +13,8 @@ class BanglaSmsChannel
      */
     public function send(object $notifiable, Notification $notification): void
     {
-        if(!method_exists($notification, 'toBanglaSms')) throw new \Exception('toBanglaSms() is required in Notification');
+        if(!method_exists($notification, 'toBanglaSms')) throw new \Exception('toBanglaSms() is required in Notification class');
+        if(!method_exists($notifiable, 'routeNotificationForBanglaSms')) throw new \Exception('routeNotificationForBanglaSms() is required in Notifiable class');
 
         $sender = new Sender($notification->toBanglaSms($notifiable), [$notifiable->routeNotificationForBanglaSms($notification)]);
 
