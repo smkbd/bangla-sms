@@ -1,5 +1,5 @@
 # Bangla SMS
-As of Laravel 10, it only supports Vonage as the SMS notification channel. But `smkbd/bangla-sms` package lets you utilize Bangladeshi bulk SMS services (e.g. SMSQ) to send SMS notifications.
+As of Laravel 10, it only supports Vonage as the SMS notification channel. But `smkbd/bangla-sms` package lets you utilize Bangladeshi bulk SMS services to send SMS notifications.
 
 This package supports a number of Bangladeshi SMS service providers/gateways (see below).
 
@@ -7,8 +7,10 @@ This package supports a number of Bangladeshi SMS service providers/gateways (se
 | Laravel Version | Support    |
 |-----------------|------------| 
 | Laravel 10      | ✔️         |
-| Laravel 9       | ✔️          |
-| Laravel 8       | Not tested |
+| Laravel 9       | ✔️         |
+| Laravel 8       | ✔️         |
+| Laravel 7       | Not tested |
+| Laravel 6       | Not tested |
 
 
 ## Installation
@@ -55,7 +57,7 @@ do it in the following way-
     }
 
 ### 4. Configuring the Laravel Notification class
-Configure your Notification class like the following way-
+Configure your Notification class in the following way-
 
     use Smkbd\BanglaSms\BanglaSmsChannel;
 
@@ -116,3 +118,7 @@ You can also specify an SMS provider like this-
 |------------------------------|---------------|--------|
 | [SMSQ](https://smsq.com.bd/) | `client_id`, `sender_id`, `api_token` | ✔️ |
 | [MiMSMS](https://www.mimsms.com/) | under development | ❌ |
+
+### _I don't have the required info. Where do I get it?_
+If you are registered with an SMS gateway service provider, you can
+ask them about the API tokens/IDs. They will be able to help you with it.
