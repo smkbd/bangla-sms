@@ -10,9 +10,12 @@ class Smsq extends SmsProvider
     public array $requiredConfig = ['client_id', 'api_key', 'sender_id'];
 
     /**
+     * Responsible for sending the message through API
+     * @param string $message The message to send
+     * @param array $recipients Array of recipient mobile number
      * @throws \Exception
      */
-    public function send($message, $recipients): void
+    public function send(string $message, array $recipients): void
     {
         $ch = curl_init();
 
@@ -50,6 +53,11 @@ class Smsq extends SmsProvider
         curl_close($ch);
     }
 
+    /**
+     * Adds 880 in the beginning of the numbers as SMSQ only accepts a phone number with country code
+     * @param array $recipients Array of phone numbers
+     * @return string Comma separated phone numbers
+     */
     public function prepareRecipients(array $recipients): string
     {
         $filtered = array_map(function ($recipient) {
