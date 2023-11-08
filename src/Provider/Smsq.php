@@ -3,6 +3,8 @@
 namespace Smkbd\BanglaSms\Provider;
 
 
+use Smkbd\BanglaSms\Exceptions\BanglaSmsException;
+
 class Smsq extends SmsProvider
 {
     public string $name = 'smsq';
@@ -13,7 +15,7 @@ class Smsq extends SmsProvider
      * Responsible for sending the message through API
      * @param string $message The message to send
      * @param array $recipients Array of recipient mobile number
-     * @throws \Exception
+     * @throws BanglaSmsException
      */
     public function send(string $message, array $recipients): void
     {
@@ -44,12 +46,12 @@ class Smsq extends SmsProvider
         $response = curl_exec($ch);
 
         if (curl_errno($ch)) {
-            throw new \Exception(curl_error($ch));
+            throw new BanglaSmsException(curl_error($ch));
         }
 
         $response = json_decode($response, true);
 
-        if(!isset($response['ErrorCode']) || $response['ErrorCode'] != 0) throw new \Exception($response['ErrorDescription'] ?? 'Server returned an error response');
+        if(!isset($response['ErrorCode']) || $response['ErrorCode'] != 0) throw new BanglaSmsException($response['ErrorDescription'] ?? 'Server returned an error response');
         curl_close($ch);
     }
 

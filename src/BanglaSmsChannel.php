@@ -4,6 +4,7 @@ namespace Smkbd\BanglaSms;
 
 use Illuminate\Notifications\Notification;
 use Illuminate\Support\Facades\Log;
+use Smkbd\BanglaSms\Exceptions\BanglaSmsException;
 use Smkbd\BanglaSms\Sender;
 
 class BanglaSmsChannel
@@ -13,8 +14,8 @@ class BanglaSmsChannel
      */
     public function send(object $notifiable, Notification $notification): void
     {
-        if(!method_exists($notification, 'toBanglaSms')) throw new \Exception('toBanglaSms() is required in Notification class');
-        if(!method_exists($notifiable, 'routeNotificationForBanglaSms')) throw new \Exception('routeNotificationForBanglaSms() is required in Notifiable class');
+        if(!method_exists($notification, 'toBanglaSms')) throw new BanglaSmsException('toBanglaSms() is required in Notification class');
+        if(!method_exists($notifiable, 'routeNotificationForBanglaSms')) throw new BanglaSmsException('routeNotificationForBanglaSms() is required in Notifiable class');
 
         $sender = new Sender($notification->toBanglaSms($notifiable), [$notifiable->routeNotificationForBanglaSms($notification)]);
 

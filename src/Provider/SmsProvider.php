@@ -3,6 +3,7 @@
 namespace Smkbd\BanglaSms\Provider;
 
 use Illuminate\Support\Facades\Log;
+use Smkbd\BanglaSms\Exceptions\BanglaSmsException;
 
 class SmsProvider
 {
@@ -17,12 +18,12 @@ class SmsProvider
      */
     public function __construct()
     {
-        if($this->name == 'default') throw new \Exception('Provider name missing');
+        if($this->name == 'default') throw new BanglaSmsException('Provider name missing');
         $config = config('bangla-sms.providers')[$this->name];
 
         foreach ($this->requiredConfig as $configItem)
         {
-            if(!isset($config[$configItem])) throw new \Exception('Required information missing');
+            if(!isset($config[$configItem])) throw new BanglaSmsException('Required information missing');
         }
 
         $this->config = $config;
