@@ -18,8 +18,8 @@ class BanglaSmsChannel
         if(!method_exists($notifiable, 'routeNotificationForBanglaSms')) throw new BanglaSmsException('routeNotificationForBanglaSms() is required in Notifiable class');
 
         $provider = null;
-        if(property_exists($notification, 'provider') && class_exists($notification->provider)){
-            $provider = new ($notification->provider)();
+        if(property_exists($notification, 'banglaSmsProvider') && class_exists($notification->banglaSmsProvider)){
+            $provider = new ($notification->banglaSmsProvider)();
         }
 
         $sender = new Sender($notification->toBanglaSms($notifiable), [$notifiable->routeNotificationForBanglaSms($notification)], $provider);
