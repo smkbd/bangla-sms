@@ -7,8 +7,13 @@ use Smkbd\BanglaSms\Exceptions\BanglaSmsException;
 
 class Smsq extends SmsProvider
 {
+    /** @var string Name of the provider */
     public string $name = 'smsq';
+
+    /** @var string API base */
     public string $apiBase = 'https://api.smsq.global/api/v2';
+
+    /** @var array|string[] Required information for this provider */
     public array $requiredConfig = ['client_id', 'api_key', 'sender_id'];
 
     /**
@@ -55,20 +60,4 @@ class Smsq extends SmsProvider
         curl_close($ch);
     }
 
-    /**
-     * Adds 880 in the beginning of the numbers as SMSQ only accepts a phone number with country code
-     * @param array $recipients Array of phone numbers
-     * @return string Comma separated phone numbers
-     */
-    public function prepareRecipients(array $recipients): string
-    {
-        $filtered = array_map(function ($recipient) {
-            if (substr($recipient, 0, 1) == '0') {
-                $recipient = '88' . $recipient;
-            }
-            return $recipient;
-        }, $recipients);
-
-        return join(',', $filtered);
-    }
 }

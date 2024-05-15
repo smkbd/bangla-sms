@@ -114,10 +114,11 @@ You can also specify an SMS provider like this-
     $sender->send();
 
 ## Available SMS providers
-| Provider                     | Required info | Status |
-|------------------------------|---------------|--------|
-| [SMSQ](https://smsq.com.bd/) | `client_id`, `sender_id`, `api_token` | ✔️ |
-| [MiMSMS](https://www.mimsms.com/) | under development | ❌ |
+| Provider                     | Required info                    | Status |
+|------------------------------|----------------------------------|--------|
+| [SMSQ](https://smsq.com.bd/) | `client_id`, `sender_id`, `api_token` | ✔️     |
+| [SMS NOC](https://smsnoc.com)| `token`,  `sender_id` | ✔️       |
+
 
 ### _I don't have the required info. Where do I get it?_
 If you are registered with an SMS gateway service provider, you can

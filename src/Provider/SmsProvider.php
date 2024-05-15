@@ -40,8 +40,32 @@ class SmsProvider
         Log::info($response);
     }
 
+    /**
+     * The method that is responsible for making the API request
+     *
+     * @param string $message
+     * @param array $recipients
+     * @return void
+     */
     public function send(string $message, array $recipients)
     {
 
+    }
+
+    /**
+     * Adds 880 in the beginning of the numbers as SMSQ only accepts a phone number with country code
+     * @param array $recipients Array of phone numbers
+     * @return string Comma separated phone numbers
+     */
+    public function prepareRecipients(array $recipients): string
+    {
+        $filtered = array_map(function ($recipient) {
+            if (substr($recipient, 0, 1) == '0') {
+                $recipient = '88' . $recipient;
+            }
+            return $recipient;
+        }, $recipients);
+
+        return join(',', $filtered);
     }
 }
