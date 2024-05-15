@@ -42,7 +42,7 @@ class SmsNoc extends SmsProvider
         $headers = [
             'Accept: application/json',
             'Content-Type: application/json',
-            'Authorization: Bearer ' . $this->requiredConfig['token']
+            'Authorization: Bearer ' . $this->config['token']
         ];
 
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
