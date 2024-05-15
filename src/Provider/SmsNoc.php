@@ -32,6 +32,7 @@ class SmsNoc extends SmsProvider
 
         curl_setopt($ch, CURLOPT_URL, $fullUrl);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_POST, 1);
 
         $headers = [
             'Accept: application/json',

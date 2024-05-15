@@ -21,7 +21,7 @@ The following command will add the latest version of the package to your Laravel
 ## Configuration
 ### 1. Publish the configuration file
 
-    php artisan vendor:publish php --tag=bangla-sms
+    php artisan vendor:publish --tag=bangla-sms
 
 It will publish `bangla-sms.php` in your project's `/config` directory.
 
