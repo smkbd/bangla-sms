@@ -4,7 +4,7 @@ use Smkbd\BanglaSms\Provider\Smsq;
 use Smkbd\BanglaSms\Provider\SmsNoc;
 
 return [
-    'default' => 'smsq',
+    'default' => 'smsnoc',
     'providers' => [
         'smsq' => [
             'client_id' => 'CLIENT_ID_HERE',

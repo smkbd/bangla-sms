@@ -12,6 +12,11 @@ class SmsNoc extends SmsProvider
     public array $requiredConfig = ['token', 'sender_id'];
 
     /**
+     * Send SMS through SMSNoc SMS Provider
+     *
+     * @param string $message
+     * @param array $recipients
+     * @return void
      * @throws BanglaSmsException
      */
     public function send(string $message, array $recipients): void
@@ -52,7 +57,5 @@ class SmsNoc extends SmsProvider
 
         if(isset($response['status']) && $response['status'] != 'success') throw new BanglaSmsException($response['message'] ?? 'Server returned an error response');
         curl_close($ch);
-
-        Log::info($response);
     }
 }
